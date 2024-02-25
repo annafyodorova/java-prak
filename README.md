@@ -1,10 +1,10 @@
 # Прокат видеокассет
 ## База данных 
-[PDF_DB](database.pdf)
+[PDF_DB](images/database.pdf)
 
 
 ## Страницы сайта 
-[PDF_chema](chema.pdf)
+[PDF_chema](images/chema.pdf)
 
 
 ### Главная страница 
