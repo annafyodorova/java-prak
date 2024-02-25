@@ -1,6 +1,6 @@
 # Прокат видеокассет
 ## База данных 
-[PDF_DB](images/database.pdf)
+[PDF_DB](images/db.pdf)
 
 
 ## Страницы сайта 
