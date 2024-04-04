@@ -6,6 +6,7 @@ import lombok.NonNull;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.Date;
 import java.util.Objects;
@@ -15,38 +16,20 @@ import java.util.Objects;
 @Getter
 @Setter
 @ToString
-@IdClass(HistoryPK.class)
 public class History implements CommonEntity<HistoryPK>{
-    @Id
-    @Column(nullable = false, name = "client_id")
-    @NonNull
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "client_id")
-    private Client clientId;
-
-    @Id
-    @Column(nullable = false, name = "film_copy_id")
-    @NonNull
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "film_copies_id")
-    private FilmCopies filmCopyId;
-
-    @Id
-    @Column(nullable = false, name = "date_of_issue")
-    @NonNull
-    @Temporal(TemporalType.DATE)
-    private Date dateOfIssue;
+    @EmbeddedId
+    private HistoryPK historyId;
 
     @Column(nullable = false, name = "date_of_return")
     @NonNull
-    @Temporal(TemporalType.DATE)
-    private Date dateOfReturn;
+    private LocalDate dateOfReturn;
 
     public History() {}
 
     public HistoryPK getId() {
-        return new HistoryPK(clientId.getClientId(), filmCopyId.getFilmCopiesId(), dateOfIssue.toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
+        return this.historyId;
     }
+
 
     /**
      * Constructor
@@ -54,12 +37,10 @@ public class History implements CommonEntity<HistoryPK>{
     public History(
             Client client_id,
             FilmCopies film_copy_id,
-            Date date_of_issue,
-            Date date_of_return
+            LocalDate date_of_issue,
+            LocalDate date_of_return
     ) {
-        this.clientId = client_id;
-        this.filmCopyId = film_copy_id;
-        this.dateOfIssue = date_of_issue;
+        this.historyId = new HistoryPK(client_id, film_copy_id, date_of_issue);
         this.dateOfReturn = date_of_return;
     }
 
@@ -73,8 +54,7 @@ public class History implements CommonEntity<HistoryPK>{
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         History other = (History) o;
-        return Objects.equals(clientId, other.clientId)
-                && Objects.equals(filmCopyId, other.filmCopyId)
-                && Objects.equals(dateOfIssue, other.dateOfIssue);
+        return Objects.equals(historyId, other.historyId)
+                &&Objects.equals(dateOfReturn, other.dateOfReturn);
     }
 }

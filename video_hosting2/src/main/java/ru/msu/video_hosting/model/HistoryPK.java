@@ -1,27 +1,39 @@
 package ru.msu.video_hosting.model;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import ru.msu.video_hosting.DAO.ClientDAO;
+
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Objects;
 
 @Getter
 @Setter
+@Embeddable
 public class HistoryPK implements Serializable {
-    private Integer client;
-    private Integer film_copy;
-    private LocalDate date_of_issue;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @MapsId("clientId")
+    private Client clientId;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @MapsId("filmCopyId")
+    private FilmCopies filmCopyId;
+
+    @Column(name = "date_of_issue")
+    private LocalDate dateOfIssue;
+
 
     public HistoryPK() {}
 
     public HistoryPK(
-            Integer client,
-            Integer film_copy,
+            Client client,
+            FilmCopies film_copy,
             LocalDate date_of_issue
     ) {
-        this.client = client;
-        this.film_copy = film_copy;
-        this.date_of_issue = date_of_issue;
+        this.clientId = client;
+        this.filmCopyId = film_copy;
+        this.dateOfIssue = date_of_issue;
     }
 
     /**
@@ -34,8 +46,8 @@ public class HistoryPK implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         HistoryPK other = (HistoryPK) o;
-        return Objects.equals(client, other.client)
-                && Objects.equals(film_copy, other.film_copy)
-                && Objects.equals(date_of_issue, other.date_of_issue);
+        return Objects.equals(clientId, other.clientId)
+                && Objects.equals(filmCopyId, other.filmCopyId)
+                && Objects.equals(dateOfIssue, other.dateOfIssue);
     }
 }

@@ -1,77 +1,100 @@
 package ru.msu.video_hosting.DAO.impl;
+import jakarta.persistence.criteria.CriteriaQuery;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
+import org.springframework.stereotype.Repository;
 import ru.msu.video_hosting.DAO.CommonDAO;
 import ru.msu.video_hosting.model.CommonEntity;
 
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.PersistenceContext;
 import jakarta.transaction.Transactional;
 import java.util.Collection;
 import java.util.List;
 
+@Repository
 public class CommonDAOImpl<T extends CommonEntity<ID>, ID> implements CommonDAO<T, ID> {
 
-    @PersistenceContext
-    private EntityManager entityManager;
+    protected SessionFactory sessionFactory;
 
     private final Class<T> entityClass;
+
+    @Autowired
+    public void setSessionFactory(LocalSessionFactoryBean sessionFactory) {
+        this.sessionFactory = sessionFactory.getObject();
+    }
+
 
     public CommonDAOImpl(Class<T> entityClass) {
         this.entityClass = entityClass;
     }
 
     @Override
-    public T findById(ID id) {
-        return entityManager.find(entityClass, id);
-    }
-
-    @Override
-    public List<T> findAll() {
-        return entityManager.createQuery("SELECT e FROM " + entityClass.getSimpleName() + " e", entityClass)
-                .getResultList();
-    }
-
-    @Override
     @Transactional
     public void save(T entity) {
-        entityManager.persist(entity);
+        try (Session session = sessionFactory.openSession()) {
+            session.beginTransaction();
+            session.merge(entity);
+            session.getTransaction().commit();
+        }
     }
 
     @Override
     @Transactional
     public void update(T entity) {
-        entityManager.merge(entity);
+        try (Session session = sessionFactory.openSession()) {
+            session.beginTransaction();
+            session.merge(entity);
+            session.getTransaction().commit();
+        }
     }
 
     @Override
     @Transactional
     public void delete(T entity) {
-        entityManager.remove(entity);
+        try (Session session = sessionFactory.openSession()) {
+            session.beginTransaction();
+            session.remove(entity);
+            session.getTransaction().commit();
+        }
     }
 
     @Override
     @Transactional
     public void deleteById(ID id) {
-        T entityToRemove = entityManager.find(entityClass, id);
-        if (entityToRemove != null) {
-            entityManager.remove(entityToRemove);
+        try (Session session = sessionFactory.openSession()) {
+            session.beginTransaction();
+            T entity = getById(id);
+            session.remove(entity);
+            session.getTransaction().commit();
         }
     }
 
     @Override
     @Transactional
     public void saveCollection(Collection<T> entities) {
-        for (T entity : entities) {
-            entityManager.persist(entity);
+        try (Session session = sessionFactory.openSession()) {
+            session.beginTransaction();
+            for (T entity : entities) {
+                this.save(entity);
+            }
+            session.getTransaction().commit();
         }
     }
 
     @Override
     public T getById(ID id) {
-        return findById(id);
+        try (Session session = sessionFactory.openSession()) {
+            return session.get(entityClass, id);
+        }
     }
 
     @Override
     public List<T> getAll() {
-        return findAll();
+        try (Session session = sessionFactory.openSession()) {
+            CriteriaQuery<T> criteriaQuery = session.getCriteriaBuilder().createQuery(entityClass);
+            criteriaQuery.from(entityClass);
+            return session.createQuery(criteriaQuery).getResultList();
+        }
     }
 }

@@ -10,10 +10,6 @@ public interface CommonDAO<T extends CommonEntity<ID>, ID> {
 
     Collection<T> getAll();
 
-    T findById(ID id);
-
-    List<T> findAll();
-
     void save(T entity);
 
     void saveCollection(Collection<T> entities);

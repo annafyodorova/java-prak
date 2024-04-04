@@ -20,8 +20,6 @@ public class StorageInfo implements CommonEntity<Integer> {
     @Column(nullable = false, name = "storage_info_id")
     private Integer storageInfoId;
 
-    @Column(nullable = false, name = "film_id")
-    @NonNull
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "film_id", nullable = false)
     private Film filmId;
