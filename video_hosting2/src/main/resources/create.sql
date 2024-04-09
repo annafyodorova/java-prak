@@ -27,7 +27,7 @@ create table films(
                       film_company varchar(255) not null,
                       director varchar(255) not null,
                       year_of_premiere integer not null,
-                      film_genre genre not null,
+                      film_genre varchar(20) not null,
                       description text
 );
 
@@ -40,7 +40,7 @@ create table storage_info(
                              storage_info_id serial primary key,
                              film_id integer references films,
                              film_copies integer[],
-                             storage_device_type device_type not null,
+                             storage_device_type varchar(8) not null,
                              full_amount integer not null,
                              free_amount integer not null,
                              price decimal(10,2) not null
@@ -48,6 +48,7 @@ create table storage_info(
 
 
 create table history(
+                        id serial primary key,
                         client_id integer references clients,
                         film_copy_id integer references film_copies,
                         date_of_issue date not null,

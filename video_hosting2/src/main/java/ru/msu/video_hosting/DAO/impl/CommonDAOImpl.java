@@ -3,29 +3,24 @@ import jakarta.persistence.criteria.CriteriaQuery;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
-import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Component;
 import ru.msu.video_hosting.DAO.CommonDAO;
 import ru.msu.video_hosting.model.CommonEntity;
 
 import jakarta.transaction.Transactional;
+
+import java.io.Serializable;
 import java.util.Collection;
 import java.util.List;
 
-@Repository
+@Component
 public class CommonDAOImpl<T extends CommonEntity<ID>, ID> implements CommonDAO<T, ID> {
-
+    @Autowired
     protected SessionFactory sessionFactory;
 
-    private final Class<T> entityClass;
+    private Class<T> entityClass;
 
-    @Autowired
-    public void setSessionFactory(LocalSessionFactoryBean sessionFactory) {
-        this.sessionFactory = sessionFactory.getObject();
-    }
-
-
-    public CommonDAOImpl(Class<T> entityClass) {
+    public void setEntityClass(Class<T> entityClass){
         this.entityClass = entityClass;
     }
 
@@ -61,17 +56,6 @@ public class CommonDAOImpl<T extends CommonEntity<ID>, ID> implements CommonDAO<
 
     @Override
     @Transactional
-    public void deleteById(ID id) {
-        try (Session session = sessionFactory.openSession()) {
-            session.beginTransaction();
-            T entity = getById(id);
-            session.remove(entity);
-            session.getTransaction().commit();
-        }
-    }
-
-    @Override
-    @Transactional
     public void saveCollection(Collection<T> entities) {
         try (Session session = sessionFactory.openSession()) {
             session.beginTransaction();
@@ -85,7 +69,7 @@ public class CommonDAOImpl<T extends CommonEntity<ID>, ID> implements CommonDAO<
     @Override
     public T getById(ID id) {
         try (Session session = sessionFactory.openSession()) {
-            return session.get(entityClass, id);
+            return session.get(entityClass, (Serializable) id);
         }
     }
 

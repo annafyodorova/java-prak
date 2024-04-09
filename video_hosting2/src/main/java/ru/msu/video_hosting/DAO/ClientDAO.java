@@ -15,7 +15,5 @@ public interface ClientDAO extends CommonDAO<Client, Integer> {
 
     List<Client> findClientsWithOverdueRentals();
 
-    void updateClientInfo(Client client);
-
     int countClients();
 }

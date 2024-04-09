@@ -2,9 +2,9 @@ package ru.msu.video_hosting.model;
 
 import jakarta.persistence.*;
 import lombok.Getter;
-import lombok.NonNull;
 import lombok.Setter;
 import lombok.ToString;
+import ru.msu.video_hosting.DAO.FilmCopyDAO;
 
 import java.util.List;
 import java.util.Objects;
@@ -20,29 +20,24 @@ public class StorageInfo implements CommonEntity<Integer> {
     @Column(nullable = false, name = "storage_info_id")
     private Integer storageInfoId;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "film_id", nullable = false)
     private Film filmId;
 
-    @ElementCollection
+    @ElementCollection(fetch = FetchType.EAGER)
     @Column(name = "film_copies")
     private List<Integer> filmCopies;
 
-    @Enumerated(EnumType.STRING)
     @Column(nullable = false, name = "storage_device_type")
-    @NonNull
-    private DeviceType storageDeviceType;
+    private String storageDeviceType;
 
     @Column(nullable = false, name = "full_amount")
-    @NonNull
     private Integer fullAmount;
 
     @Column(nullable = false, name = "free_amount")
-    @NonNull
     private Integer freeAmount;
 
     @Column(nullable = false, name = "price")
-    @NonNull
     private Double price;
 
     public StorageInfo() {}
@@ -58,7 +53,7 @@ public class StorageInfo implements CommonEntity<Integer> {
             Integer storage_info_id,
             Film film_id,
             List<Integer> film_copies,
-            DeviceType storage_device_type,
+            String storage_device_type,
             Integer full_amount,
             Integer free_amount,
             Double price
@@ -71,6 +66,15 @@ public class StorageInfo implements CommonEntity<Integer> {
         this.freeAmount = free_amount;
         this.price = price;
     }
+
+    public void removeCopies(EntityManager entityManager) {
+        List<Integer> copyIds = this.filmCopies;
+        for (Integer copyId : copyIds) {
+            FilmCopies copy = entityManager.find(FilmCopies.class, copyId);
+            entityManager.remove(copy);
+    }
+}
+
 
     /**
      * Check if objects are equals

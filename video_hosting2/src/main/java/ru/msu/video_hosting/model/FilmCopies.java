@@ -19,10 +19,9 @@ public class FilmCopies implements CommonEntity<Integer>{
     @Column(nullable = false, name = "film_copies_id")
     private Integer filmCopiesId;
 
-    @Enumerated(EnumType.STRING)
+    //@Enumerated(EnumType.STRING)
     @Column(nullable = false, name = "status")
-    @NonNull
-    private CopyStatus status;
+    private String status;
 
     public FilmCopies() {}
 
@@ -34,7 +33,7 @@ public class FilmCopies implements CommonEntity<Integer>{
      */
     public FilmCopies(
             Integer FilmCopies_id,
-            CopyStatus status
+            String status
     ) {
         this.filmCopiesId = FilmCopies_id;
         this.status = status;

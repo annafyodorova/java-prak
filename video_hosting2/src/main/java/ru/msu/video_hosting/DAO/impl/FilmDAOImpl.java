@@ -1,13 +1,16 @@
 package ru.msu.video_hosting.DAO.impl;
 
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 import ru.msu.video_hosting.DAO.FilmDAO;
 import ru.msu.video_hosting.model.Film;
 
 import org.hibernate.Session;
 
 import jakarta.persistence.TypedQuery;
+import ru.msu.video_hosting.model.FilmCopies;
 import ru.msu.video_hosting.model.FilmGenre;
+import ru.msu.video_hosting.model.StorageInfo;
 
 import java.util.List;
 
@@ -15,7 +18,8 @@ import java.util.List;
 public class FilmDAOImpl extends CommonDAOImpl<Film, Integer> implements FilmDAO {
 
     public FilmDAOImpl() {
-        super(Film.class);
+        super();
+        setEntityClass(Film.class);
     }
 
     @Override
@@ -28,7 +32,7 @@ public class FilmDAOImpl extends CommonDAOImpl<Film, Integer> implements FilmDAO
     }
 
     @Override
-    public List<Film> findByGenre(FilmGenre genre) {
+    public List<Film> findByGenre(String genre) {
         try (Session session = sessionFactory.openSession()) {
             TypedQuery<Film> query = session.createQuery("SELECT f FROM Film f WHERE f.filmGenre = :genre", Film.class);
             query.setParameter("genre", genre);
@@ -68,6 +72,23 @@ public class FilmDAOImpl extends CommonDAOImpl<Film, Integer> implements FilmDAO
         try (Session session = sessionFactory.openSession()) {
             TypedQuery<Film> query = session.createQuery("SELECT f FROM Film f ORDER BY f.yearOfPremiere", Film.class);
             return query.getResultList();
+        }
+    }
+
+    @Override
+    @Transactional
+    public void delete(Film entity) {
+        try (Session session = sessionFactory.openSession()) {
+            session.beginTransaction();
+
+            List<StorageInfo> storageInfos = session.createQuery("FROM StorageInfo WHERE filmId = :film", StorageInfo.class)
+                    .setParameter("film", entity)
+                    .getResultList();
+            for (StorageInfo storageInfo : storageInfos) {
+                session.delete(storageInfo);
+            }
+            session.delete(entity);
+            session.getTransaction().commit();
         }
     }
 

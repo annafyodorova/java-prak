@@ -1,9 +1,9 @@
 package ru.msu.video_hosting.model;
 
 import jakarta.persistence.*;
-import lombok.*;
-import org.hibernate.annotations.JdbcTypeCode;
-import org.hibernate.type.SqlTypes;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
 import java.util.Objects;
 
@@ -19,26 +19,20 @@ public class Film implements CommonEntity<Integer> {
     private Integer filmId;
 
     @Column(nullable = false, name = "film_title")
-    @NonNull
     private String filmTitle;
 
     @Column(nullable = false, name = "film_company")
-    @NonNull
     private String filmCompany;
 
     @Column(nullable = false, name = "director")
-    @NonNull
     private String director;
 
     @Column(nullable = false, name = "year_of_premiere")
-    @NonNull
     private int yearOfPremiere;
 
     @Column(nullable = false, name = "film_genre")
-    @JdbcTypeCode(SqlTypes.NAMED_ENUM)
-    @NonNull
-    @Enumerated(EnumType.STRING)
-    private FilmGenre filmGenre;
+    //@Enumerated(EnumType.STRING)
+    private String filmGenre;
 
     @Column(nullable = true, name = "description")
     private String description;
@@ -58,7 +52,7 @@ public class Film implements CommonEntity<Integer> {
             String film_company,
             String director,
             int year_of_premiere,
-            FilmGenre film_genre,
+            String film_genre,
             String description
     ) {
         this.filmId = film_id;
@@ -79,7 +73,7 @@ public class Film implements CommonEntity<Integer> {
             String film_company,
             String director,
             int year_of_premiere,
-            FilmGenre film_genre
+            String film_genre
     ) {
         this.filmId = film_id;
         this.filmTitle = film_title;

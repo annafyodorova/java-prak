@@ -9,7 +9,7 @@ public interface FilmDAO extends CommonDAO<Film, Integer> {
 
     Film findByTitle(String title);
 
-    List<Film> findByGenre(FilmGenre genre);
+    List<Film> findByGenre(String genre);
 
     List<Film> findByYearOfPremiere(int year);
 

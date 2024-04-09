@@ -1,19 +1,23 @@
 package ru.msu.video_hosting.DAO.impl;
 
+import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Repository;
 import ru.msu.video_hosting.DAO.StorageInfoDAO;
+import ru.msu.video_hosting.model.FilmCopies;
 import ru.msu.video_hosting.model.StorageInfo;
 
 import org.hibernate.Session;
 
 import jakarta.persistence.TypedQuery;
+
 import java.util.List;
 
 @Repository
 public class StorageInfoDAOImpl extends CommonDAOImpl<StorageInfo, Integer> implements StorageInfoDAO {
 
     public StorageInfoDAOImpl() {
-        super(StorageInfo.class);
+        super();
+        setEntityClass(StorageInfo.class);
     }
 
     @Override
@@ -56,20 +60,20 @@ public class StorageInfoDAOImpl extends CommonDAOImpl<StorageInfo, Integer> impl
     @Override
     public int getTotalAvailableCopiesForFilm(int filmId) {
         try (Session session = sessionFactory.openSession()) {
-            TypedQuery<Integer> query = session.createQuery("SELECT SUM(si.fullAmount) FROM StorageInfo si WHERE si.filmId.id = :filmId", Integer.class);
+            TypedQuery<Long> query = session.createQuery("SELECT SUM(si.fullAmount) FROM StorageInfo si WHERE si.filmId.id = :filmId", Long.class);
             query.setParameter("filmId", filmId);
-            Integer totalCopies = query.getSingleResult();
-            return totalCopies != null ? totalCopies : 0;
+            Long totalCopies = query.getSingleResult();
+            return totalCopies != null ? totalCopies.intValue() : 0;
         }
     }
 
     @Override
     public int getRemainingCopiesForFilm(int filmId) {
         try (Session session = sessionFactory.openSession()) {
-            TypedQuery<Integer> query = session.createQuery("SELECT SUM(si.freeAmount) FROM StorageInfo si WHERE si.filmId.id = :filmId", Integer.class);
+            TypedQuery<Long> query = session.createQuery("SELECT SUM(si.freeAmount) FROM StorageInfo si WHERE si.filmId.id = :filmId", Long.class);
             query.setParameter("filmId", filmId);
-            Integer remainingCopies = query.getSingleResult();
-            return remainingCopies != null ? remainingCopies : 0;
+            Long remainingCopies = query.getSingleResult();
+            return remainingCopies != null ? remainingCopies.intValue() : 0;
         }
     }
 

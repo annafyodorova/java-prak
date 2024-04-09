@@ -1,12 +1,16 @@
 package ru.msu.video_hosting.DAO.impl;
 
+import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 import ru.msu.video_hosting.DAO.ClientDAO;
+import ru.msu.video_hosting.DAO.impl.CommonDAOImpl;
 import ru.msu.video_hosting.model.Client;
 import org.hibernate.Session;
 
 import jakarta.persistence.TypedQuery;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
@@ -14,7 +18,8 @@ import java.util.List;
 public class ClientDAOImpl extends CommonDAOImpl<Client, Integer> implements ClientDAO {
 
     public ClientDAOImpl() {
-        super(Client.class);
+        super();
+        setEntityClass(Client.class);
     }
 
     @Override
@@ -48,7 +53,7 @@ public class ClientDAOImpl extends CommonDAOImpl<Client, Integer> implements Cli
     @Override
     public List<Client> findClientsRentingFilm(int filmCopyId) {
         try (Session session = sessionFactory.openSession()) {
-            TypedQuery<Client> query = session.createQuery("SELECT c FROM Client c JOIN History h ON c.clientId = h.clientId.clientId WHERE h.filmCopyId = :filmId", Client.class);
+            TypedQuery<Client> query = session.createQuery("SELECT c FROM Client c JOIN History h ON c.clientId = h.clientId WHERE h.filmCopyId = :filmId", Client.class);
             query.setParameter("filmId", filmCopyId);
             return query.getResultList();
         }
@@ -56,20 +61,18 @@ public class ClientDAOImpl extends CommonDAOImpl<Client, Integer> implements Cli
 
     @Override
     public List<Client> findClientsWithOverdueRentals() {
-        Date currentDate = new Date();
+        LocalDate currentDate = LocalDate.now();
         try (Session session = sessionFactory.openSession()) {
-            TypedQuery<Client> query = session.createQuery("SELECT DISTINCT c FROM Client c JOIN History h ON c.clientId = h.clientId.clientId WHERE h.dateOfReturn < :currentDate", Client.class);
+            TypedQuery<Client> query = session.createQuery(
+                    "SELECT DISTINCT c " +
+                            "FROM Client c " +
+                            "JOIN History h ON c.clientId = h.clientId " +
+                            "JOIN FilmCopies fc ON h.filmCopyId = fc.filmCopiesId " +
+                            "WHERE h.dateOfReturn < :currentDate AND fc.status = 'Выдан'",
+                    Client.class
+            );
             query.setParameter("currentDate", currentDate);
             return query.getResultList();
-        }
-    }
-
-    @Override
-    public void updateClientInfo(Client client) {
-        try (Session session = sessionFactory.openSession()) {
-            session.beginTransaction();
-            session.merge(client);
-            session.getTransaction().commit();
         }
     }
 

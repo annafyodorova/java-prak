@@ -9,22 +9,23 @@ import ru.msu.video_hosting.model.History;
 import org.hibernate.Session;
 
 import jakarta.persistence.TypedQuery;
-import ru.msu.video_hosting.model.HistoryPK;
 
 import java.util.List;
 
 @Repository
-public class HistoryDAOImpl extends CommonDAOImpl<History, HistoryPK> implements HistoryDAO {
+public class HistoryDAOImpl extends CommonDAOImpl<History, Integer> implements HistoryDAO {
 
     public HistoryDAOImpl() {
-        super(History.class);
+        super();
+        setEntityClass(History.class);
     }
 
     @Override
     public List<History> findByClient(Client client) {
         try (Session session = sessionFactory.openSession()) {
-            TypedQuery<History> query = session.createQuery("SELECT h FROM History h WHERE h.clientId = :client", History.class);
-            query.setParameter("client", client);
+            Integer client_id = client.getClientId();
+            TypedQuery<History> query = session.createQuery("SELECT h FROM History h WHERE h.clientId = :client_id", History.class);
+            query.setParameter("client_id", client_id);
             return query.getResultList();
         }
     }
@@ -32,8 +33,9 @@ public class HistoryDAOImpl extends CommonDAOImpl<History, HistoryPK> implements
     @Override
     public List<History> findByFilmCopy(FilmCopies filmCopy) {
         try (Session session = sessionFactory.openSession()) {
-            TypedQuery<History> query = session.createQuery("SELECT h FROM History h WHERE h.filmCopyId = :filmCopy", History.class);
-            query.setParameter("filmCopy", filmCopy);
+            Integer filmCopy_id = filmCopy.getFilmCopiesId();
+            TypedQuery<History> query = session.createQuery("SELECT h FROM History h WHERE h.filmCopyId = :filmCopy_id", History.class);
+            query.setParameter("filmCopy_id", filmCopy_id);
             return query.getResultList();
         }
     }
