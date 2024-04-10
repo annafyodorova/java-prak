@@ -1,17 +1,13 @@
 package ru.msu.video_hosting.DAO.impl;
 
-import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Repository;
-import org.springframework.stereotype.Service;
 import ru.msu.video_hosting.DAO.ClientDAO;
-import ru.msu.video_hosting.DAO.impl.CommonDAOImpl;
 import ru.msu.video_hosting.model.Client;
 import org.hibernate.Session;
 
 import jakarta.persistence.TypedQuery;
 
 import java.time.LocalDate;
-import java.util.Date;
 import java.util.List;
 
 @Repository
