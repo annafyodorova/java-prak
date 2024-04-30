@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Страница клиента</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <style>
+        /* Стили для контейнера */
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Стили для заголовка */
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        /* Стили для списка арендованных фильмов */
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+<div class="container">
+    <h1>Информация о клиенте</h1>
+    <p><strong>Имя:</strong> {{ client.full_name }}</p>
+    <p><strong>Email:</strong> {{ client.email }}</p>
+    <p><strong>Адрес:</strong> {{ client.address }}</p>
+    <p><strong>Телефон:</strong> {{ client.phone_number }}</p>
+
+    <h2>Арендованные фильмы</h2>
+    <ul>
+        <!-- Список арендованных фильмов -->
+        <!-- Используйте цикл для отображения списка арендованных фильмов -->
+        <li th:each="film : ${rentedFilms}">
+            <p>Название: <span th:text="${film.filmTitle}"></span></p>
+            <p>Режиссер: <span th:text="${film.director}"></span></p>
+            <p>Дата выдачи: <span th:text="${film.dateOfIssue}"></span></p>
+            <p>Дата возврата: <span th:text="${film.dateOfReturn}"></span></p>
+        </li>
+    </ul>
+</div>
+</body>
+
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Информация о фильме</title>
+  <link rel="stylesheet" href="/static/styles.css">
+  <style>
+    /* Стили для контейнера */
+    .container {
+      max-width: 600px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #f9f9f9;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Стили для заголовка */
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+
+    /* Стили для кнопки */
+    .btn {
+      color: #fff;
+      background-color: #ff69b4; /* Розовый цвет */
+      padding: 8px 12px;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+
+    .btn:hover {
+      background-color: #ff4d94;
+    }
+  </style>
+</head>
+
+<body>
+<div class="container">
+  <h1 th:text="${film.title}">Название фильма</h1>
+  <p><strong>Режиссер:</strong> <span th:text="${film.director}"></span></p>
+  <p><strong>Жанр:</strong> <span th:text="${film.genre}"></span></p>
+  <p><strong>Год выпуска:</strong> <span th:text="${film.year}"></span></p>
+  <p><strong>Описание:</strong> <span th:text="${film.description}"></span></p>
+  <a href="/films" class="btn">Назад к списку фильмов</a>
+</div>
+</body>
+
+</html>

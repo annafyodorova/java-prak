@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Домашняя страница</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <style>
+        body {
+            text-align: center;
+        }
+
+        /* Стили для кнопок */
+        .nav-buttons a {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 10px;
+            background-color: hotpink;
+            color: black;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        /* Цвет кнопок при наведении */
+        .nav-buttons a:hover {
+            background-color: purple;
+        }
+    </style>
+</head>
+
+<body>
+<h1>Добро пожаловать на наш сайт аренды фильмов!</h1>
+<div class="nav-buttons">
+    <a href="/films">Список всех фильмов</a>
+    <a href="/client">Страница клиента</a>
+    <a href="/client/registration">Регистрация клиента</a>
+</div>
+</body>
+
+</html>

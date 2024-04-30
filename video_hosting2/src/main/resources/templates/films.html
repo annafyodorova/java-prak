@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Список фильмов</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <style>
+        /* Стили для контейнера */
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Стили для заголовка */
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        /* Стили для списка фильмов */
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        /* Стили для кнопок */
+        .btn {
+            color: #fff;
+            background-color: #ff69b4; /* Розовый цвет */
+            padding: 8px 12px;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .btn:hover {
+            background-color: #ff4d94;
+        }
+    </style>
+</head>
+
+<body>
+<div class="container">
+    <h1>Список всех фильмов</h1>
+    <ul>
+        <!-- Используйте цикл для отображения списка фильмов -->
+        <li th:each="film : ${films}">
+            <h2 th:text="${film.title}"></h2>
+            <p>Режиссер: <span th:text="${film.director}"></span></p>
+            <p>Жанр: <span th:text="${film.genre}"></span></p>
+            <a th:href="@{/films/{filmId}(filmId=${film.id})}" class="btn">Подробнее о фильме</a>
+        </li>
+    </ul>
+</div>
+</body>
+
+</html>
