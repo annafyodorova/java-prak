@@ -1,9 +1,9 @@
 package ru.msu.video_hosting.DAO.impl;
 
-import jakarta.transaction.Transactional;
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import ru.msu.video_hosting.DAO.StorageInfoDAO;
-import ru.msu.video_hosting.model.FilmCopies;
 import ru.msu.video_hosting.model.StorageInfo;
 
 import org.hibernate.Session;
@@ -15,8 +15,9 @@ import java.util.List;
 @Repository
 public class StorageInfoDAOImpl extends CommonDAOImpl<StorageInfo, Integer> implements StorageInfoDAO {
 
-    public StorageInfoDAOImpl() {
-        super();
+    @Autowired
+    public StorageInfoDAOImpl(SessionFactory sessionFactory) {
+        super(sessionFactory);
         setEntityClass(StorageInfo.class);
     }
 

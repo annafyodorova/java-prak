@@ -11,26 +11,22 @@ import ru.msu.video_hosting.model.*;
 import java.io.IOException;
 
 @Configuration
-public class SessionWire {
+public class HibernateSessionFactory {
     @Bean(name="entityManagerFactory")
-    public SessionFactory sessionFactory() throws IOException {
+//    @Bean
+    public SessionFactory sessionFactory() {
 
         SessionFactory sessionFactory;
 
         final StandardServiceRegistry registry = new StandardServiceRegistryBuilder().build();
-        try {
-            sessionFactory = new MetadataSources(registry)
-                    .addAnnotatedClasses(Client.class,
-                            Film.class,
-                            FilmCopies.class,
-                            StorageInfo.class,
-                            History.class)
-                        .buildMetadata()
-                    .buildSessionFactory();
-        }
-        catch (Exception e) {
-            throw e;
-        }
+        sessionFactory = new MetadataSources(registry)
+                .addAnnotatedClasses(Client.class,
+                        Film.class,
+                        FilmCopies.class,
+                        StorageInfo.class,
+                        History.class)
+                    .buildMetadata()
+                .buildSessionFactory();
         return sessionFactory;
     }
 }

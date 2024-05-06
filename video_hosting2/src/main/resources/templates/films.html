@@ -51,12 +51,11 @@
 <div class="container">
     <h1>Список всех фильмов</h1>
     <ul>
-        <!-- Используйте цикл для отображения списка фильмов -->
         <li th:each="film : ${films}">
-            <h2 th:text="${film.title}"></h2>
-            <p>Режиссер: <span th:text="${film.director}"></span></p>
-            <p>Жанр: <span th:text="${film.genre}"></span></p>
-            <a th:href="@{/films/{filmId}(filmId=${film.id})}" class="btn">Подробнее о фильме</a>
+            <h2 th:text="${film.getFilmTitle()}"></h2>
+            <p>Режиссер: <span th:text="${film.getDirector()}"></span></p>
+            <p>Жанр: <span th:text="${film.getFilmGenre()}"></span></p>
+            <a th:href="@{/film/{filmId}(filmId=${film.getFilmId()})}" class="btn">Подробнее о фильме</a>
         </li>
     </ul>
 </div>

@@ -1,24 +1,24 @@
 package ru.msu.video_hosting.DAO.impl;
 
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 import ru.msu.video_hosting.DAO.FilmDAO;
 import ru.msu.video_hosting.model.Film;
+import ru.msu.video_hosting.model.StorageInfo;
+
 
 import org.hibernate.Session;
 
 import jakarta.persistence.TypedQuery;
-import ru.msu.video_hosting.model.FilmCopies;
-import ru.msu.video_hosting.model.FilmGenre;
-import ru.msu.video_hosting.model.StorageInfo;
-
 import java.util.List;
 
 @Repository
 public class FilmDAOImpl extends CommonDAOImpl<Film, Integer> implements FilmDAO {
-
-    public FilmDAOImpl() {
-        super();
+    @Autowired
+    public FilmDAOImpl(SessionFactory sessionFactory) {
+        super(sessionFactory);
         setEntityClass(Film.class);
     }
 

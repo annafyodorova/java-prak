@@ -1,5 +1,7 @@
 package ru.msu.video_hosting.DAO.impl;
 
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import ru.msu.video_hosting.DAO.HistoryDAO;
 import ru.msu.video_hosting.model.Client;
@@ -14,9 +16,9 @@ import java.util.List;
 
 @Repository
 public class HistoryDAOImpl extends CommonDAOImpl<History, Integer> implements HistoryDAO {
-
-    public HistoryDAOImpl() {
-        super();
+    @Autowired
+    public HistoryDAOImpl(SessionFactory sessionFactory) {
+        super(sessionFactory);
         setEntityClass(History.class);
     }
 

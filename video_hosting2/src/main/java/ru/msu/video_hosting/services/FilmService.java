@@ -1,13 +1,17 @@
 package ru.msu.video_hosting.services;
 
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import ru.msu.video_hosting.DAO.impl.FilmDAOImpl;
 import ru.msu.video_hosting.model.Film;
 
 import java.util.List;
-
+@Service
 public class FilmService extends CommonService<Film, FilmDAOImpl> {
-    public FilmService() {
-        super(new FilmDAOImpl());
+    @Autowired
+    public FilmService(SessionFactory sessionFactory) {
+        super(new FilmDAOImpl(sessionFactory));
     }
 
     public Film findByTitle(String title) {

@@ -9,6 +9,8 @@ public interface ClientDAO extends CommonDAO<Client, Integer> {
 
     List<Client> findByPhoneNumber(String phoneNumber);
 
+    List<Client> findByEmail(String email);
+
     boolean authenticate(String email, String password);
 
     List<Client> findClientsRentingFilm(int filmId);

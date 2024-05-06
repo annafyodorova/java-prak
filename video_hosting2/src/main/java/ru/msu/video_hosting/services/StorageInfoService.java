@@ -1,13 +1,15 @@
 package ru.msu.video_hosting.services;
 
+import org.hibernate.SessionFactory;
+import org.springframework.stereotype.Service;
 import ru.msu.video_hosting.DAO.impl.StorageInfoDAOImpl;
 import ru.msu.video_hosting.model.StorageInfo;
 
 import java.util.List;
-
+@Service
 public class StorageInfoService extends CommonService<StorageInfo, StorageInfoDAOImpl> {
-    public StorageInfoService() {
-        super(new StorageInfoDAOImpl());
+    public StorageInfoService(SessionFactory sessionFactory) {
+        super(new StorageInfoDAOImpl(sessionFactory));
     }
 
     public List<StorageInfo> findByFilmId(int filmId) {

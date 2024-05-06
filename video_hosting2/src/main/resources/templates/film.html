@@ -14,6 +14,16 @@
       background-color: #f9f9f9;
       border-radius: 5px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      position: relative; /* Добавлено для позиционирования */
+    }
+
+    /* Стили для стрелки */
+    .back-arrow {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      font-size: 24px;
+      cursor: pointer;
     }
 
     /* Стили для заголовка */
@@ -39,11 +49,11 @@
 
 <body>
 <div class="container">
-  <h1 th:text="${film.title}">Название фильма</h1>
-  <p><strong>Режиссер:</strong> <span th:text="${film.director}"></span></p>
-  <p><strong>Жанр:</strong> <span th:text="${film.genre}"></span></p>
-  <p><strong>Год выпуска:</strong> <span th:text="${film.year}"></span></p>
-  <p><strong>Описание:</strong> <span th:text="${film.description}"></span></p>
+  <h1 th:text="${film.getFilmTitle()}">Название фильма</h1>
+  <p><strong>Режиссер:</strong> <span th:text="${film.getDirector()}"></span></p>
+  <p><strong>Жанр:</strong> <span th:text="${film.getFilmGenre()}"></span></p>
+  <p><strong>Год выпуска:</strong> <span th:text="${film.getYearOfPremiere()}"></span></p>
+  <p><strong>Описание:</strong> <span th:text="${film.getDescription()}"></span></p>
   <a href="/films" class="btn">Назад к списку фильмов</a>
 </div>
 </body>

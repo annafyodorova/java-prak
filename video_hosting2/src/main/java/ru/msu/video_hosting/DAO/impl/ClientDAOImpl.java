@@ -1,5 +1,6 @@
 package ru.msu.video_hosting.DAO.impl;
 
+import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
 import ru.msu.video_hosting.DAO.ClientDAO;
 import ru.msu.video_hosting.model.Client;
@@ -13,8 +14,8 @@ import java.util.List;
 @Repository
 public class ClientDAOImpl extends CommonDAOImpl<Client, Integer> implements ClientDAO {
 
-    public ClientDAOImpl() {
-        super();
+    public ClientDAOImpl(SessionFactory sessionFactory) {
+        super(sessionFactory);
         setEntityClass(Client.class);
     }
 
@@ -32,6 +33,15 @@ public class ClientDAOImpl extends CommonDAOImpl<Client, Integer> implements Cli
         try (Session session = sessionFactory.openSession()) {
             TypedQuery<Client> query = session.createQuery("SELECT c FROM Client c WHERE c.phone_number = :phoneNumber", Client.class);
             query.setParameter("phoneNumber", phoneNumber);
+            return query.getResultList();
+        }
+    }
+
+    @Override
+    public List<Client> findByEmail(String email) {
+        try (Session session = sessionFactory.openSession()) {
+            TypedQuery<Client> query = session.createQuery("SELECT c FROM Client c WHERE c.email = :email", Client.class);
+            query.setParameter("email", email);
             return query.getResultList();
         }
     }

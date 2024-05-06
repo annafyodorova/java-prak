@@ -32,6 +32,7 @@ public class WebConfig implements WebMvcConfigurer {
 
         var templateEngine = new SpringTemplateEngine();
         templateEngine.setTemplateResolver(templateResolver());
+        templateEngine.setEnableSpringELCompiler(true);
 
         return templateEngine;
     }

@@ -4,6 +4,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 import ru.msu.video_hosting.DAO.CommonDAO;
 import ru.msu.video_hosting.model.CommonEntity;
 
@@ -13,12 +14,15 @@ import java.io.Serializable;
 import java.util.Collection;
 import java.util.List;
 
-@Component
+@Repository
 public class CommonDAOImpl<T extends CommonEntity<ID>, ID> implements CommonDAO<T, ID> {
-    @Autowired
-    protected SessionFactory sessionFactory;
+    protected final SessionFactory sessionFactory;
 
     private Class<T> entityClass;
+
+    public CommonDAOImpl(SessionFactory sessionFactory) {
+        this.sessionFactory = sessionFactory;
+    }
 
     public void setEntityClass(Class<T> entityClass){
         this.entityClass = entityClass;
