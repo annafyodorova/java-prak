@@ -22,7 +22,7 @@ public class StorageInfoDAOImpl extends CommonDAOImpl<StorageInfo, Integer> impl
     }
 
     @Override
-    public List<StorageInfo> findByFilmId(int filmId) {
+    public List<StorageInfo> findByFilmId(String filmId) {
         try (Session session = sessionFactory.openSession()) {
             TypedQuery<StorageInfo> query = session.createQuery("SELECT si FROM StorageInfo si WHERE si.filmId.id = :filmId", StorageInfo.class);
             query.setParameter("filmId", filmId);

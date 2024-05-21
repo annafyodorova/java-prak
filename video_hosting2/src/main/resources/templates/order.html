@@ -59,11 +59,16 @@
 <body>
 <div class="container">
     <h1>Оформление заказа</h1>
-    <p><strong>Название фильма:</strong> <span th:text="${film.title}"></span></p>
+    <p><strong>Название фильма:</strong> <span th:text="${film.getFilmTitle()}"></span></p>
     <form action="/place-order" method="post">
         <label for="address">Адрес доставки:</label>
         <input type="text" id="address" name="address" required>
         <input type="submit" value="Заказать">
+
+        /* Сюда еще нужно добавить сколько всего копий и сколько осталось.
+        а также сколько кассет и сколько дисков осталось.
+        и добавить возможность выбора кассеты/диска.
+        еще нужно сделать, чтобы можно было менять количество копий. */
     </form>
 </div>
 </body>

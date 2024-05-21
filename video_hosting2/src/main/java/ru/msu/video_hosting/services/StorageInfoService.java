@@ -12,7 +12,7 @@ public class StorageInfoService extends CommonService<StorageInfo, StorageInfoDA
         super(new StorageInfoDAOImpl(sessionFactory));
     }
 
-    public List<StorageInfo> findByFilmId(int filmId) {
+    public List<StorageInfo> findByFilmId(String filmId) {
         return dao.findByFilmId(filmId);
     }
 

@@ -1,59 +1,24 @@
 <!DOCTYPE html>
-<html lang="ru">
-
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Страница клиента</title>
-    <link rel="stylesheet" href="/static/styles.css">
-    <style>
-        /* Стили для контейнера */
-        .container {
-            max-width: 600px;
-            margin: 20px auto;
-            padding: 20px;
-            background-color: #f9f9f9;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Стили для заголовка */
-        h1 {
-            text-align: center;
-            color: #333;
-        }
-
-        /* Стили для списка арендованных фильмов */
-        ul {
-            list-style-type: none;
-            padding: 0;
-        }
-
-        li {
-            margin-bottom: 10px;
-        }
-    </style>
+    <title>Client Details</title>
 </head>
-
 <body>
-<div class="container">
-    <h1>Информация о клиенте</h1>
-    <p><strong>Имя:</strong> {{ client.full_name }}</p>
-    <p><strong>Email:</strong> {{ client.email }}</p>
-    <p><strong>Адрес:</strong> {{ client.address }}</p>
-    <p><strong>Телефон:</strong> {{ client.phone_number }}</p>
-
-    <h2>Арендованные фильмы</h2>
+<h1>Client Details</h1>
+<div>
+    <p>Name: <span th:text="${client.getFull_name()}"></span></p>
+    <p>Email: <span th:text="${client.getEmail()}"></span></p>
+    <p>Phone: <span th:text="${client.getPhone_number()}"></span></p>
+    <p>Address: <span th:text="${client.getAddress()}"></span></p>
+</div>
+<div>
+    <h2>Rented Films</h2>
     <ul>
-        <!-- Список арендованных фильмов -->
-        <!-- Используйте цикл для отображения списка арендованных фильмов -->
-        <li th:each="film : ${rentedFilms}">
-            <p>Название: <span th:text="${film.filmTitle}"></span></p>
-            <p>Режиссер: <span th:text="${film.director}"></span></p>
-            <p>Дата выдачи: <span th:text="${film.dateOfIssue}"></span></p>
-            <p>Дата возврата: <span th:text="${film.dateOfReturn}"></span></p>
+        <li th:each="history : ${rentedFilms}">
+            <span th:text="${history.getFilmCopyId()}"></span> (Rented on <span th:text="${history.getDateOfIssue()}"></span>)
         </li>
     </ul>
 </div>
 </body>
-
 </html>
