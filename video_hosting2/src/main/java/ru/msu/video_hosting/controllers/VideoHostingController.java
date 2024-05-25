@@ -1,6 +1,9 @@
 package ru.msu.video_hosting.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -32,7 +35,8 @@ public class VideoHostingController {
 
     // Домашняя страница
     @GetMapping( value = {"/", "/index"})
-    public String homePage() {
+    public String homePage(@AuthenticationPrincipal UserDetails user, Model model) {
+        model.addAttribute("user", user);
         return "index";
     }
 
@@ -65,33 +69,9 @@ public class VideoHostingController {
     }
 
     // Страница входа
-    @GetMapping("/loginvideo")
+    @GetMapping("/login")
     public String loginPage() {
-        return "loginvideo";
-    }
-
-    // Обработка входа
-    @PostMapping("/loginvideo")
-    public String authenticate(@RequestParam("email") String email,
-                               @RequestParam("password") String password,
-                               RedirectAttributes redirectAttributes,
-                               Model model) {
-
-        boolean isAuthenticated = clientService.authenticate(email, password);
-
-        if (isAuthenticated) {
-            List<Client> clients = clientService.findByEmail(email);
-            if (!clients.isEmpty()) {
-                Client client = clients.get(0); // Предполагается, что email уникален
-                return "redirect:/client/" + client.getId();
-            } else {
-                model.addAttribute("error", "No client found with the provided email");
-                return "loginvideo";
-            }
-        } else {
-            model.addAttribute("error", "Invalid email or password");
-            return "loginvideo";
-        }
+        return "login";
     }
 
 
@@ -102,26 +82,7 @@ public class VideoHostingController {
         return "registration";
     }
 
-    @PostMapping("/saveclient")
-    public String registerClient(
-            @RequestParam("fullName") String fullName,
-            @RequestParam("email") String email,
-            @RequestParam("password") String password,
-            Model model,
-            RedirectAttributes redirectAttributes
-    ) {
-        try {
-            int size = clientService.countClients();
-            size += 1;
-            Client client = new Client(size, email, password, fullName);
-            clientService.save(client);
-            redirectAttributes.addFlashAttribute("success", "Регистрация прошла успешно!");
-            return "redirect:/client/" + client.getClientId();
-        } catch (Exception e) {
-            redirectAttributes.addFlashAttribute("error", "Ошибка при регистрации: " + e.getMessage());
-            return "redirect:/register";
-        }
-    }
+
 
     // Страница оформления заказа
     @GetMapping("/order")

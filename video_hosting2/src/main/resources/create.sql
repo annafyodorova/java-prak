@@ -1,12 +1,12 @@
-create database video_host;
+-- create database video_host;
 
-create schema if not exists video_host_schema;
+-- create schema if not exists video_host_schema;
 
-set search_path to video_host_schema;
+-- set search_path to video_host_schema;
 
-drop type genre;
-drop type device_type;
-drop type copy_status;
+drop type if exists genre;
+drop type if exists device_type;
+drop type if exists copy_status;
 
 create type genre as enum ('Боевик', 'Драма', 'Комедия', 'Ужасы', 'Фантастика', 'Триллер', 'Другой', 'Мюзикл');
 create type device_type as enum ('Кассета', 'Диск');

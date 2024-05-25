@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Домашняя страница</title>
-    <link rel="stylesheet" href="/static/styles.css">
+    <link rel="stylesheet" th:href="@{/styles/common.css}">
     <style>
         body {
             text-align: center;
@@ -30,10 +30,11 @@
 </head>
 
 <body>
+<h1 th:if="${user}" th:text="'Привет, ' + ${user.getUsername()} + '!'"/>
 <h1>Добро пожаловать на наш сайт аренды фильмов!</h1>
 <div class="nav-buttons">
     <a href="/films">Список всех фильмов</a>
-    <a href="/loginvideo">Вход</a>
+    <a href="/login">Вход</a>
     <a href="/register">Регистрация</a>
 </div>
 </body>

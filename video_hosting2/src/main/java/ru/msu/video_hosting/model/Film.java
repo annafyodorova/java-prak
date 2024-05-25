@@ -34,7 +34,7 @@ public class Film implements CommonEntity<Integer> {
     //@Enumerated(EnumType.STRING)
     private String filmGenre;
 
-    @Column(nullable = true, name = "description")
+    @Column(nullable = true, name = "description", length = 4096)
     private String description;
 
     public Film() {}

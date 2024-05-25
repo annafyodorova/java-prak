@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Информация о фильме</title>
-  <link rel="stylesheet" href="/static/styles.css">
+  <link rel="stylesheet" th:href="@{/styles/common.css}">
   <style>
     /* Стили для контейнера */
     .container {
@@ -58,10 +58,10 @@
   <h1>Список копий</h1>
   <ul>
     <li th:each="copy : ${storageInfo}">
-      <p>Всего копий: <span th:text="${copy.getFullAmount()()}"></span></p>
-      <p>Доступно: <span th:text="${copy.getFreeAmount()()}"></span></p>
-      <p>Тип носителя: <span th:text="${copy.getStorageDeviceType()()()}"></span></p>
-      <p>Цена: <span th:text="${copy.getPrice()()()}"></span></p>
+      <p>Всего копий: <span th:text="${copy.getFullAmount()}"></span></p>
+      <p>Доступно: <span th:text="${copy.getFreeAmount()}"></span></p>
+      <p>Тип носителя: <span th:text="${copy.getStorageDeviceType()}"></span></p>
+      <p>Цена: <span th:text="${copy.getPrice()}"></span></p>
     </li>
   </ul>
   <a href="/films" class="btn">Назад к списку фильмов</a>
