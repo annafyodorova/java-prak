@@ -78,4 +78,15 @@ public class StorageInfoDAOImpl extends CommonDAOImpl<StorageInfo, Integer> impl
         }
     }
 
+    public StorageInfo findByCopyId(int copyId){
+        try (Session session = sessionFactory.openSession()) {
+            for(StorageInfo si: getAll()){
+                if(List.of(si.getFilmCopies()).contains(copyId))
+                    return si;
+
+            }
+            throw new RuntimeException("can't find StorageInfo that contains this copy");
+        }
+    }
+
 }

@@ -10,5 +10,6 @@ public interface StorageInfoDAO extends CommonDAO<StorageInfo, Integer>{
     int getCountByFilmAndDevice(int filmId, String deviceType);
     int getTotalAvailableCopiesForFilm(int filmId);
     int getRemainingCopiesForFilm(int filmId);
+    StorageInfo findByCopyId(int copyId);
 
 }

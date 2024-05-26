@@ -1,0 +1,79 @@
+<script th:fragment="cartScript" th:inline="javascript">
+    // initial count
+    updateCartCounter(getCart());
+    console.log("init")
+
+    function addToCart(goodId, quantity, maxQuantity= 100000) {
+        // Get the current cart from cookies
+        let cart = getCart();
+
+        // Check if the goodId already exists in the cart
+        if (cart[goodId]) {
+            // If it exists, update the quantity
+            // cart[goodId] += quantity;
+            cart[goodId] = Math.min(maxQuantity, cart[goodId] + quantity);
+        } else {
+            // If it doesn't exist, add it with the specified quantity
+            // cart[goodId] = quantity;
+            cart[goodId] = Math.min(maxQuantity, quantity);
+        }
+
+        // Update the cart cookie
+        setCart(cart);
+    }
+
+    function removeFromCart(goodId) {
+        // Get the current cart from cookies
+        let cart = getCart();
+
+        // Remove the goodId from the cart
+        delete cart[goodId];
+
+        // Update the cart cookie
+        setCart(cart);
+    }
+
+    // Helper function to get the cart from cookies
+    function getCart() {
+        // Get the cart cookie
+        const cartCookie = document.cookie.match(/(?:^|;\s*)encodedCart=([^;]*)/);
+
+        // If the cart cookie exists, parse it as a JSON object
+        if (cartCookie) {
+            return JSON.parse(atob(cartCookie[1]));
+        } else {
+            // If the cart cookie doesn't exist, return an empty object
+            return {};
+        }
+    }
+
+    // Helper function to set the cart cookie
+    function setCart(cart) {
+        // Stringify the cart object
+        const cartString = btoa(JSON.stringify(cart));
+
+
+        // Set the cart cookie
+        // document.cookie = ['cart', '=', JSON.stringify(cart), '; path=/;'].join('');
+
+        document.cookie = `encodedCart=${cartString}; path=/`;
+        // document.cookie = `cart=bebra; path=/`;
+        updateCartCounter(cart);
+
+    }
+
+    function cartNotEmpty(){
+        return document.getElementById("cart-counter").textContent !== "0";
+    }
+
+    function updateCartCounter(cart){
+        let counter = 0;
+        for (const [key, value] of Object.entries(cart)) {
+            console.log(`${key}: ${value}`);
+            counter += value;
+        }
+
+        document.getElementById("cart-counter").textContent = counter.toString();
+    }
+
+</script>

@@ -1,0 +1,1143 @@
+{
+  "id": "8bffc9c1-6096-4e35-8d17-f1848e2646f8",
+  "version": "2.0",
+  "name": "videohosting",
+  "url": "http://localhost:8080",
+  "tests": [{
+    "id": "44fd5530-e183-4b69-aa28-97b17dbdb331",
+    "name": "register and login",
+    "commands": [{
+      "id": "afe08c73-e680-4aa5-9a8f-06241d63097a",
+      "comment": "",
+      "command": "open",
+      "target": "/logout",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "8d2ed991-d0c9-4c26-805d-daca94e98a06",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "b8026835-9df3-4987-93c4-f120a0f76477",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1638x952",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "1f76dca5-ea64-4596-a361-6f39897d9712",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-secondary",
+      "targets": [
+        ["css=.btn-secondary", "css:finder"],
+        ["xpath=(//button[@type='submit'])[2]", "xpath:attributes"],
+        ["xpath=//div[2]/form/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Зарегистрироваться')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "793177d0-dec3-4ec4-a88f-957086872dc8",
+      "comment": "",
+      "command": "click",
+      "target": "id=fullName",
+      "targets": [
+        ["id=fullName", "id"],
+        ["name=fullName", "name"],
+        ["css=#fullName", "css:finder"],
+        ["xpath=//input[@id='fullName']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "d384d203-8319-4237-938a-afb33245a166",
+      "comment": "",
+      "command": "type",
+      "target": "id=fullName",
+      "targets": [
+        ["id=fullName", "id"],
+        ["name=fullName", "name"],
+        ["css=#fullName", "css:finder"],
+        ["xpath=//input[@id='fullName']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "abcdef"
+    }, {
+      "id": "87b077b0-9419-4391-8269-296b111325f2",
+      "comment": "",
+      "command": "click",
+      "target": "css=.container:nth-child(2)",
+      "targets": [
+        ["css=.container:nth-child(2)", "css:finder"],
+        ["xpath=//body/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "767d3df2-cc97-401b-8b21-89c6ee780557",
+      "comment": "",
+      "command": "type",
+      "target": "id=email",
+      "targets": [
+        ["id=email", "id"],
+        ["name=email", "name"],
+        ["css=#email", "css:finder"],
+        ["xpath=//input[@id='email']", "xpath:attributes"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": "abcdef@mail.ru"
+    }, {
+      "id": "c94c6021-4f0f-4e9b-bca2-00ff78204820",
+      "comment": "",
+      "command": "click",
+      "target": "css=.container:nth-child(2)",
+      "targets": [
+        ["css=.container:nth-child(2)", "css:finder"],
+        ["xpath=//body/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "c5b50532-910f-4c31-b9bd-16d89750aeaa",
+      "comment": "",
+      "command": "type",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["name=password", "name"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//input[3]", "xpath:position"]
+      ],
+      "value": "abcdef"
+    }, {
+      "id": "a0bd8999-2db0-4c41-bf68-41733602c7ac",
+      "comment": "",
+      "command": "click",
+      "target": "css=input:nth-child(7)",
+      "targets": [
+        ["css=input:nth-child(7)", "css:finder"],
+        ["xpath=//input[@value='Зарегистрироваться']", "xpath:attributes"],
+        ["xpath=//input[4]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a48dff47-af51-49ca-867d-2fb74d58971d",
+      "comment": "",
+      "command": "mouseDownAt",
+      "target": "id=email",
+      "targets": [
+        ["id=email", "id"],
+        ["name=email", "name"],
+        ["css=#email", "css:finder"],
+        ["xpath=//input[@id='email']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "5.375,10"
+    }, {
+      "id": "1db47824-12bf-4071-accc-832d20ac78fd",
+      "comment": "",
+      "command": "mouseMoveAt",
+      "target": "id=email",
+      "targets": [
+        ["id=email", "id"],
+        ["name=email", "name"],
+        ["css=#email", "css:finder"],
+        ["xpath=//input[@id='email']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "5.375,10"
+    }, {
+      "id": "fb2fc394-e727-4839-a9bb-e7b58e80f50a",
+      "comment": "",
+      "command": "mouseUpAt",
+      "target": "id=email",
+      "targets": [
+        ["id=email", "id"],
+        ["name=email", "name"],
+        ["css=#email", "css:finder"],
+        ["xpath=//input[@id='email']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "5.375,10"
+    }, {
+      "id": "56d91c69-83b7-4ed5-81ce-c1500ff6a927",
+      "comment": "",
+      "command": "click",
+      "target": "id=email",
+      "targets": [
+        ["id=email", "id"],
+        ["name=email", "name"],
+        ["css=#email", "css:finder"],
+        ["xpath=//input[@id='email']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a631f416-7dcc-442b-b4fa-ad9a00b78090",
+      "comment": "",
+      "command": "type",
+      "target": "id=email",
+      "targets": [
+        ["id=email", "id"],
+        ["name=email", "name"],
+        ["css=#email", "css:finder"],
+        ["xpath=//input[@id='email']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "abcdef@mail.ru"
+    }, {
+      "id": "e40dbbd4-2c1b-4293-b98b-45ab9477e979",
+      "comment": "",
+      "command": "click",
+      "target": "css=form:nth-child(3)",
+      "targets": [
+        ["css=form:nth-child(3)", "css:finder"],
+        ["xpath=(//form[@action='/login'])[2]", "xpath:attributes"],
+        ["xpath=//body/form", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ddc9668e-a57d-48f0-9f56-920088503d0f",
+      "comment": "",
+      "command": "type",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["name=password", "name"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "abcdef"
+    }, {
+      "id": "a9865855-85a5-46b6-ad86-04baac438ef2",
+      "comment": "",
+      "command": "click",
+      "target": "id=login",
+      "targets": [
+        ["css=div > button", "css:finder"],
+        ["xpath=(//button[@type='submit'])[3]", "xpath:attributes"],
+        ["xpath=//div[3]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Login')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "2d54457f-4f2d-4779-a023-2d306aaa41f8",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "f63206a6-6d7b-4132-ae35-dac86a18e8ba",
+      "comment": "",
+      "command": "",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "cdca1ab5-c853-4316-bb75-2a8394516830",
+      "comment": "",
+      "command": "assertText",
+      "target": "id=user_email",
+      "targets": [],
+      "value": "abcdef@mail.ru"
+    }, {
+      "id": "4c98d0e0-8a4c-4253-b970-41366e34f841",
+      "comment": "",
+      "command": "open",
+      "target": "/films",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "e4f2e4eb-3660-4ac5-92de-d98858f7079b",
+      "comment": "",
+      "command": "assertText",
+      "target": "id=user_email",
+      "targets": [],
+      "value": "abcdef@mail.ru"
+    }, {
+      "id": "279c4340-ca4e-4119-8eee-b05df5d25f79",
+      "comment": "",
+      "command": "open",
+      "target": "/history",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "d86d84fd-3a00-4153-937b-e6595c0f1b48",
+      "comment": "",
+      "command": "assertText",
+      "target": "id=user_email",
+      "targets": [],
+      "value": "abcdef@mail.ru"
+    }]
+  }, {
+    "id": "910e4cb1-ef0d-4c6c-b402-4695d80a59db",
+    "name": "logout and login",
+    "commands": [{
+      "id": "d900a092-7dc4-43e2-b864-9967435c0cbe",
+      "comment": "",
+      "command": "open",
+      "target": "/logout",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "847d7c51-aeae-4a66-a950-7721206d93ec",
+      "comment": "",
+      "command": "type",
+      "target": "id=email",
+      "targets": [
+        ["id=email", "id"],
+        ["name=email", "name"],
+        ["css=#email", "css:finder"],
+        ["xpath=//input[@id='email']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "abcdef@mail.ru"
+    }, {
+      "id": "365e9447-768d-4d88-ac1a-082cd60d6732",
+      "comment": "",
+      "command": "type",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["name=password", "name"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "abcdef"
+    }, {
+      "id": "77f00dfe-12f8-444b-b771-404ca5e73a2a",
+      "comment": "",
+      "command": "click",
+      "target": "id=login",
+      "targets": [
+        ["id=login", "id"],
+        ["css=#login", "css:finder"],
+        ["xpath=//button[@id='login']", "xpath:attributes"],
+        ["xpath=//div[3]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Login')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "316bcac3-908b-4aec-bdf9-e1c30fbd19b1",
+      "comment": "",
+      "command": "assertText",
+      "target": "id=user_email",
+      "targets": [],
+      "value": "abcdef@mail.ru"
+    }, {
+      "id": "01abd6a1-157f-43ce-a48d-64adf7d86168",
+      "comment": "",
+      "command": "open",
+      "target": "/film/1",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "73007b41-7c60-46a8-993a-889b580360d1",
+      "comment": "",
+      "command": "assertText",
+      "target": "id=user_email",
+      "targets": [],
+      "value": "abcdef@mail.ru"
+    }, {
+      "id": "3727803e-5384-41b9-8da6-e61f84c1cf5e",
+      "comment": "",
+      "command": "open",
+      "target": "/history",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "ea57e2d9-0409-4596-82a9-daac21f888cd",
+      "comment": "",
+      "command": "assertText",
+      "target": "id=user_email",
+      "targets": [],
+      "value": "abcdef@mail.ru"
+    }, {
+      "id": "35f30216-223d-4f60-a14b-63198a23a33b",
+      "comment": "",
+      "command": "",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "e71729e3-a69d-4175-9813-82cc60830e54",
+    "name": "add film to cart and clear",
+    "commands": [{
+      "id": "3fbd2214-a99b-4782-9226-5f85f47760ae",
+      "comment": "",
+      "command": "open",
+      "target": "/logout",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "1c2ce7c2-b7c6-42e3-82ab-e4c8081779de",
+      "comment": "",
+      "command": "open",
+      "target": "/login",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "145440bf-8c89-432f-ba55-a1b74e104152",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1638x952",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "cb1266fc-9b69-43f1-9e0d-619640a59d01",
+      "comment": "",
+      "command": "type",
+      "target": "id=email",
+      "targets": [
+        ["id=email", "id"],
+        ["name=email", "name"],
+        ["css=#email", "css:finder"],
+        ["xpath=//input[@id='email']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "abcdef@mail.ru"
+    }, {
+      "id": "ee9b5f8f-9ebe-455c-946f-5f5ff27d47dd",
+      "comment": "",
+      "command": "type",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["name=password", "name"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "abcdef"
+    }, {
+      "id": "d50826af-c6c5-46eb-b077-651f95a1a5d4",
+      "comment": "",
+      "command": "click",
+      "target": "id=login",
+      "targets": [
+        ["id=login", "id"],
+        ["css=#login", "css:finder"],
+        ["xpath=//button[@id='login']", "xpath:attributes"],
+        ["xpath=//div[3]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Login')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "acdce096-2ab1-4e6e-be3e-2a4b6be513a3",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Список всех фильмов",
+      "targets": [
+        ["linkText=Список всех фильмов", "linkText"],
+        ["css=.nav-buttons > a:nth-child(1)", "css:finder"],
+        ["xpath=//a[contains(text(),'Список всех фильмов')]", "xpath:link"],
+        ["xpath=(//a[contains(@href, '/films')])[2]", "xpath:href"],
+        ["xpath=//body/div/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Список всех фильмов')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "b378798f-3c9b-4b8c-9831-6fc188aa9788",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Подробнее о фильме",
+      "targets": [
+        ["linkText=Подробнее о фильме", "linkText"],
+        ["css=li:nth-child(1) > .btn", "css:finder"],
+        ["xpath=//a[contains(text(),'Подробнее о фильме')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/film/1')]", "xpath:href"],
+        ["xpath=//body/div/ul/li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Подробнее о фильме')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "247866f0-0570-49ea-bb5a-609c4c6ec0e1",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Добавить в корзину",
+      "targets": [
+        ["linkText=Добавить в корзину", "linkText"],
+        ["css=li:nth-child(1) > .btn", "css:finder"],
+        ["xpath=//a[contains(text(),'Добавить в корзину')]", "xpath:link"],
+        ["xpath=//a[@onclick='addToCart(1, 1, 8)']", "xpath:attributes"],
+        ["xpath=//body/div/ul/li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Добавить в корзину')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "d9764e6d-3b5d-4e27-95e1-15ae13748bde",
+      "comment": "",
+      "command": "assertText",
+      "target": "id=cart-counter",
+      "targets": [
+        ["id=cart-counter", "id"],
+        ["css=#cart-counter", "css:finder"],
+        ["xpath=//span[@id='cart-counter']", "xpath:attributes"],
+        ["xpath=//li[2]/span", "xpath:position"],
+        ["xpath=//span[contains(.,'6')]", "xpath:innerText"]
+      ],
+      "value": "1"
+    }, {
+      "id": "4f82de67-9c3b-467d-bf77-7b69920d639c",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Добавить в корзину",
+      "targets": [
+        ["linkText=Добавить в корзину", "linkText"],
+        ["css=li:nth-child(1) > .btn", "css:finder"],
+        ["xpath=//a[contains(text(),'Добавить в корзину')]", "xpath:link"],
+        ["xpath=//a[@onclick='addToCart(1, 1, 8)']", "xpath:attributes"],
+        ["xpath=//body/div/ul/li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Добавить в корзину')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "23e95d5c-3ca9-42ab-9337-f499b5e7f0dd",
+      "comment": "",
+      "command": "click",
+      "target": "css=li:nth-child(2) > .btn",
+      "targets": [
+        ["css=li:nth-child(2) > .btn", "css:finder"],
+        ["xpath=(//a[contains(text(),'Добавить в корзину')])[2]", "xpath:link"],
+        ["xpath=//a[@onclick='addToCart(2, 1, 8)']", "xpath:attributes"],
+        ["xpath=//body/div/ul/li[2]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a1450f3b-631b-4e1a-a79b-5f61dfc5f473",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Назад к списку фильмов",
+      "targets": [
+        ["linkText=Назад к списку фильмов", "linkText"],
+        ["css=.btn:nth-child(8)", "css:finder"],
+        ["xpath=//a[contains(text(),'Назад к списку фильмов')]", "xpath:link"],
+        ["xpath=(//a[contains(@href, '/films')])[2]", "xpath:href"],
+        ["xpath=//body/div/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Назад к списку фильмов')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "dd6e37b4-c9d9-48dd-b925-c833a5e25ed8",
+      "comment": "",
+      "command": "click",
+      "target": "css=li:nth-child(4) > .btn",
+      "targets": [
+        ["css=li:nth-child(4) > .btn", "css:finder"],
+        ["xpath=(//a[contains(text(),'Подробнее о фильме')])[4]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/film/4')]", "xpath:href"],
+        ["xpath=//li[4]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "5de0c746-77a7-4b69-82a8-3ca6bf046fd9",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Добавить в корзину",
+      "targets": [
+        ["linkText=Добавить в корзину", "linkText"],
+        ["css=li:nth-child(1) > .btn", "css:finder"],
+        ["xpath=//a[contains(text(),'Добавить в корзину')]", "xpath:link"],
+        ["xpath=//a[@onclick='addToCart(7, 1, 3)']", "xpath:attributes"],
+        ["xpath=//body/div/ul/li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Добавить в корзину')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "270d8f53-8cbe-4ebd-bea9-5f7eba5a6872",
+      "comment": "",
+      "command": "click",
+      "target": "css=li:nth-child(2) > .btn",
+      "targets": [
+        ["css=li:nth-child(2) > .btn", "css:finder"],
+        ["xpath=(//a[contains(text(),'Добавить в корзину')])[2]", "xpath:link"],
+        ["xpath=//a[@onclick='addToCart(8, 1, 5)']", "xpath:attributes"],
+        ["xpath=//body/div/ul/li[2]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "07b5b877-b95c-4597-9dcb-c04c7ddcd224",
+      "comment": "",
+      "command": "click",
+      "target": "css=li:nth-child(2) > .btn",
+      "targets": [
+        ["css=li:nth-child(2) > .btn", "css:finder"],
+        ["xpath=(//a[contains(text(),'Добавить в корзину')])[2]", "xpath:link"],
+        ["xpath=//a[@onclick='addToCart(8, 1, 5)']", "xpath:attributes"],
+        ["xpath=//body/div/ul/li[2]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b493c127-8d3b-46e5-b5af-e614804300c4",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Назад к списку фильмов",
+      "targets": [
+        ["linkText=Назад к списку фильмов", "linkText"],
+        ["css=.btn:nth-child(8)", "css:finder"],
+        ["xpath=//a[contains(text(),'Назад к списку фильмов')]", "xpath:link"],
+        ["xpath=(//a[contains(@href, '/films')])[2]", "xpath:href"],
+        ["xpath=//body/div/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Назад к списку фильмов')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "8ec21ffb-f3fa-42c0-8ee9-fe1639a2e043",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Корзина",
+      "targets": [
+        ["linkText=Корзина", "linkText"],
+        ["css=li:nth-child(2) > .nav-link", "css:finder"],
+        ["xpath=//a[contains(text(),'Корзина')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/cart')]", "xpath:href"],
+        ["xpath=//li[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Корзина')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "17e415c3-f583-4cda-ad1c-d4a56acca43f",
+      "comment": "",
+      "command": "assertText",
+      "target": "id=cart-counter",
+      "targets": [
+        ["id=cart-counter", "id"],
+        ["css=#cart-counter", "css:finder"],
+        ["xpath=//span[@id='cart-counter']", "xpath:attributes"],
+        ["xpath=//li[2]/span", "xpath:position"],
+        ["xpath=//span[contains(.,'6')]", "xpath:innerText"]
+      ],
+      "value": "6"
+    }, {
+      "id": "1c2bfabd-1a41-4f61-afd8-39101c7f6539",
+      "comment": "",
+      "command": "assertValue",
+      "target": "id=order_1",
+      "targets": [],
+      "value": "2"
+    }, {
+      "id": "15c0a87a-9555-42ca-9b8f-943e2562ed7f",
+      "comment": "",
+      "command": "assertValue",
+      "target": "id=order_2",
+      "targets": [
+        ["id=order_2", "id"],
+        ["css=#order_2", "css:finder"],
+        ["xpath=//input[@id='order_2']", "xpath:attributes"],
+        ["xpath=//div[2]/div[4]/input", "xpath:position"]
+      ],
+      "value": "1"
+    }, {
+      "id": "52322ff7-de6f-4abe-b2ce-9beb86a5e2f6",
+      "comment": "",
+      "command": "assertValue",
+      "target": "id=order_7",
+      "targets": [
+        ["id=order_7", "id"],
+        ["css=#order_7", "css:finder"],
+        ["xpath=//input[@id='order_7']", "xpath:attributes"],
+        ["xpath=//div[3]/div[4]/input", "xpath:position"]
+      ],
+      "value": "1"
+    }, {
+      "id": "ea346b7c-198a-4edf-b6d4-1c148d46dac7",
+      "comment": "",
+      "command": "assertValue",
+      "target": "id=order_8",
+      "targets": [
+        ["id=order_8", "id"],
+        ["css=#order_8", "css:finder"],
+        ["xpath=//input[@id='order_8']", "xpath:attributes"],
+        ["xpath=//div[4]/div[4]/input", "xpath:position"]
+      ],
+      "value": "2"
+    }, {
+      "id": "8814d7b3-cc1c-4904-8c31-8b5c24a82d1e",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-secondary",
+      "targets": [
+        ["css=.btn-secondary", "css:finder"],
+        ["xpath=//div[@onclick='setCart({}); location.reload();']", "xpath:attributes"],
+        ["xpath=//body/div[4]/div[3]/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "bd884c59-448b-4e3a-aa1a-91fa6cec9251",
+      "comment": "",
+      "command": "assertText",
+      "target": "id=cart-counter",
+      "targets": [
+        ["id=cart-counter", "id"],
+        ["css=#cart-counter", "css:finder"],
+        ["xpath=//span[@id='cart-counter']", "xpath:attributes"],
+        ["xpath=//li[2]/span", "xpath:position"],
+        ["xpath=//span[contains(.,'6')]", "xpath:innerText"]
+      ],
+      "value": "0"
+    }]
+  }, {
+    "id": "a27ce0cc-a967-4b11-b5ed-cc6907c319d4",
+    "name": "send order and check journal",
+    "commands": [{
+      "id": "3cba720e-e94b-45f2-9d65-6de944eacd4a",
+      "comment": "",
+      "command": "open",
+      "target": "/logout",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "3a9f6087-6a0d-4df5-9893-0206b99a2a01",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1638x952",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "786bb049-341c-4372-abaf-d3e757ba4d67",
+      "comment": "",
+      "command": "type",
+      "target": "id=email",
+      "targets": [
+        ["id=email", "id"],
+        ["name=email", "name"],
+        ["css=#email", "css:finder"],
+        ["xpath=//input[@id='email']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "abcdef@mail.ru"
+    }, {
+      "id": "5a330c12-70d1-4d71-9eda-d8cc7fc6f524",
+      "comment": "",
+      "command": "type",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["name=password", "name"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "abcdef"
+    }, {
+      "id": "d572f5a0-95bb-4113-bca1-b260b3d97719",
+      "comment": "",
+      "command": "click",
+      "target": "id=login",
+      "targets": [
+        ["id=login", "id"],
+        ["css=#login", "css:finder"],
+        ["xpath=//button[@id='login']", "xpath:attributes"],
+        ["xpath=//div[3]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Login')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "6436db28-3900-4f9d-81b6-b390e383364b",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Список всех фильмов",
+      "targets": [
+        ["linkText=Список всех фильмов", "linkText"],
+        ["css=.nav-buttons > a:nth-child(1)", "css:finder"],
+        ["xpath=//a[contains(text(),'Список всех фильмов')]", "xpath:link"],
+        ["xpath=(//a[contains(@href, '/films')])[2]", "xpath:href"],
+        ["xpath=//body/div/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Список всех фильмов')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "b94b9ac5-3212-4e04-a856-b0a01efbe7f7",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Подробнее о фильме",
+      "targets": [
+        ["linkText=Подробнее о фильме", "linkText"],
+        ["css=li:nth-child(1) > .btn", "css:finder"],
+        ["xpath=//a[contains(text(),'Подробнее о фильме')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/film/1')]", "xpath:href"],
+        ["xpath=//body/div/ul/li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Подробнее о фильме')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "dbb8ee60-71ba-453b-9c2c-7efe260ed711",
+      "comment": "",
+      "command": "storeText",
+      "target": "css=h1:nth-child(1)",
+      "targets": [
+        ["css=h1:nth-child(1)", "css:finder"],
+        ["xpath=//h1", "xpath:position"],
+        ["xpath=//h1[contains(.,'Ла-Ла Ленд')]", "xpath:innerText"]
+      ],
+      "value": "title"
+    }, {
+      "id": "f7448b49-585e-40ea-8cf0-8b9115901c96",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Добавить в корзину",
+      "targets": [
+        ["linkText=Добавить в корзину", "linkText"],
+        ["css=li:nth-child(1) > .btn", "css:finder"],
+        ["xpath=//a[contains(text(),'Добавить в корзину')]", "xpath:link"],
+        ["xpath=//a[@onclick='addToCart(1, 1, 8)']", "xpath:attributes"],
+        ["xpath=//body/div/ul/li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Добавить в корзину')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "270efa21-8a52-455d-aea9-94f2b041b964",
+      "comment": "",
+      "command": "assertText",
+      "target": "id=cart-counter",
+      "targets": [
+        ["id=cart-counter", "id"],
+        ["css=#cart-counter", "css:finder"],
+        ["xpath=//span[@id='cart-counter']", "xpath:attributes"],
+        ["xpath=//li[2]/span", "xpath:position"],
+        ["xpath=//span[contains(.,'6')]", "xpath:innerText"]
+      ],
+      "value": "1"
+    }, {
+      "id": "6b07ae79-044e-48c6-81c5-28091c20c394",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Корзина",
+      "targets": [
+        ["linkText=Корзина", "linkText"],
+        ["css=li:nth-child(2) > .nav-link", "css:finder"],
+        ["xpath=//a[contains(text(),'Корзина')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/cart')]", "xpath:href"],
+        ["xpath=//li[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Корзина')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "3c1abbe1-ea98-40f9-aa93-e445d0881b80",
+      "comment": "",
+      "command": "assertText",
+      "target": "id=cart-counter",
+      "targets": [
+        ["id=cart-counter", "id"],
+        ["css=#cart-counter", "css:finder"],
+        ["xpath=//span[@id='cart-counter']", "xpath:attributes"],
+        ["xpath=//li[2]/span", "xpath:position"],
+        ["xpath=//span[contains(.,'6')]", "xpath:innerText"]
+      ],
+      "value": "1"
+    }, {
+      "id": "98a501b3-99ea-4fd0-835e-4526c7ebe222",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.col > span",
+      "targets": [],
+      "value": "1"
+    }, {
+      "id": "4f6f8193-da12-4c57-af15-b6cea328b49a",
+      "comment": "",
+      "command": "storeText",
+      "target": "css=.col:nth-child(3) > div",
+      "targets": [
+        ["css=.col:nth-child(3) > div", "css:finder"],
+        ["xpath=//div/div[3]/div", "xpath:position"]
+      ],
+      "value": "price"
+    }, {
+      "id": "72c14594-76f1-46aa-9c25-a55924d7e6d5",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn:nth-child(2)",
+      "targets": [
+        ["css=.btn:nth-child(2)", "css:finder"],
+        ["xpath=//div[@onclick='sendOrder()']", "xpath:attributes"],
+        ["xpath=//div[2]/div[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a7a32dbe-07a3-40a4-9b1a-1b21b30a2dbf",
+      "comment": "",
+      "command": "assertText",
+      "target": "id=cart-counter",
+      "targets": [
+        ["id=cart-counter", "id"],
+        ["css=#cart-counter", "css:finder"],
+        ["xpath=//span[@id='cart-counter']", "xpath:attributes"],
+        ["xpath=//li[2]/span", "xpath:position"],
+        ["xpath=//span[contains(.,'6')]", "xpath:innerText"]
+      ],
+      "value": "0"
+    }, {
+      "id": "495a078e-76d2-4a7a-9499-9ab01c9eb8d7",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.col:nth-child(1) > div",
+      "targets": [
+        ["css=.col:nth-child(1) > div", "css:finder"],
+        ["xpath=//div[3]/div/div/div/div", "xpath:position"]
+      ],
+      "value": "${title}"
+    }, {
+      "id": "1b1641be-5e51-4c7c-836f-4bedf5a9987f",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.col:nth-child(2) > div",
+      "targets": [
+        ["css=.col:nth-child(2) > div", "css:finder"],
+        ["xpath=//div[2]/div", "xpath:position"]
+      ],
+      "value": "${price}"
+    }]
+  }, {
+    "id": "d5a02a1a-7167-4cda-9426-9ab21225d3eb",
+    "name": "check availability decrement",
+    "commands": [{
+      "id": "6ed80f2b-279f-4e6e-a26b-e8bfaca2dfed",
+      "comment": "",
+      "command": "open",
+      "target": "/logout",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "859c2d29-7c5a-4409-a9d6-c8cdfad4ff51",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1638x952",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "d0232a44-b36e-4360-adc4-8c3d152d4425",
+      "comment": "",
+      "command": "type",
+      "target": "id=email",
+      "targets": [
+        ["id=email", "id"],
+        ["name=email", "name"],
+        ["css=#email", "css:finder"],
+        ["xpath=//input[@id='email']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "abcdef@mail.ru"
+    }, {
+      "id": "7f82e9f5-705e-4dc7-9727-047a336f4385",
+      "comment": "",
+      "command": "type",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["name=password", "name"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "abcdef"
+    }, {
+      "id": "a23e6c6f-78a6-42af-aa32-e71601d1f082",
+      "comment": "",
+      "command": "click",
+      "target": "id=login",
+      "targets": [
+        ["id=login", "id"],
+        ["css=#login", "css:finder"],
+        ["xpath=//button[@id='login']", "xpath:attributes"],
+        ["xpath=//div[3]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Login')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "bb76ac1c-7beb-4ee9-9abe-97923a21be69",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Список всех фильмов",
+      "targets": [
+        ["linkText=Список всех фильмов", "linkText"],
+        ["css=.nav-buttons > a:nth-child(1)", "css:finder"],
+        ["xpath=//a[contains(text(),'Список всех фильмов')]", "xpath:link"],
+        ["xpath=(//a[contains(@href, '/films')])[2]", "xpath:href"],
+        ["xpath=//body/div/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Список всех фильмов')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "d7842443-1557-435d-92ad-23d6ef984ba6",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Подробнее о фильме",
+      "targets": [
+        ["linkText=Подробнее о фильме", "linkText"],
+        ["css=li:nth-child(1) > .btn", "css:finder"],
+        ["xpath=//a[contains(text(),'Подробнее о фильме')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/film/1')]", "xpath:href"],
+        ["xpath=//body/div/ul/li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Подробнее о фильме')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "09863875-b660-431d-b6ca-3009d0f87300",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Добавить в корзину",
+      "targets": [
+        ["linkText=Добавить в корзину", "linkText"],
+        ["css=li:nth-child(1) > .btn", "css:finder"],
+        ["xpath=//a[contains(text(),'Добавить в корзину')]", "xpath:link"],
+        ["xpath=//a[@onclick='addToCart(2, 1, 7)']", "xpath:attributes"],
+        ["xpath=//body/div/ul/li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Добавить в корзину')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "292f8a58-dcdb-41ba-83b4-a3c34ad42c0d",
+      "comment": "",
+      "command": "",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "f6c1a9d5-a0d8-4614-890b-008e1a19265f",
+      "comment": "",
+      "command": "//storeText",
+      "target": "css=li:nth-child(1) > p:nth-child(2) > span",
+      "targets": [],
+      "value": "aval"
+    }, {
+      "id": "d74ac315-933a-4657-aea8-6f4317b406f8",
+      "comment": "decare available counter",
+      "command": "//executeScript",
+      "target": "var aval = Number(document.querySelector(\"li:nth-child(1) > p:nth-child(2) > span\").textContent)",
+      "targets": [],
+      "value": "aval"
+    }, {
+      "id": "880eab0f-103c-4f8a-927c-a25cacfaeb34",
+      "comment": "decrament available counter",
+      "command": "//executeScript",
+      "target": "return ",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "968e4ddb-85dd-463b-a449-46f12418057f",
+      "comment": "",
+      "command": "//executeScript",
+      "target": "return Number(document.querySelector(\"li:nth-child(1) > p:nth-child(2) > span\").textContent)",
+      "targets": [],
+      "value": "return ${aval} -1;"
+    }, {
+      "id": "81e4f935-140d-4383-995b-8e0e56b6cd78",
+      "comment": "",
+      "command": "",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "4713f2ed-0e28-44b6-8a52-fa2ddd83075a",
+      "comment": "get decremented available counter",
+      "command": "executeScript",
+      "target": "return Number(document.querySelector(\"li:nth-child(1) > p:nth-child(2) > span\").textContent) - 1;",
+      "targets": [],
+      "value": "aval"
+    }, {
+      "id": "16a74fdc-d25f-42f9-8268-ccd13b102662",
+      "comment": "",
+      "command": "echo",
+      "target": "${aval}",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "2fc0d0dd-a03b-4699-84ac-e61f2d75e2f2",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Назад к списку фильмов",
+      "targets": [
+        ["linkText=Назад к списку фильмов", "linkText"],
+        ["css=.btn:nth-child(8)", "css:finder"],
+        ["xpath=//a[contains(text(),'Назад к списку фильмов')]", "xpath:link"],
+        ["xpath=(//a[contains(@href, '/films')])[2]", "xpath:href"],
+        ["xpath=//div[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Назад к списку фильмов')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "d9ce256b-780a-4190-abc9-721aa5b6ed78",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Корзина",
+      "targets": [
+        ["linkText=Корзина", "linkText"],
+        ["css=li:nth-child(2) > .nav-link", "css:finder"],
+        ["xpath=//a[contains(text(),'Корзина')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/cart')]", "xpath:href"],
+        ["xpath=//li[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Корзина')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "87852970-0b35-41bd-9cb3-88c054409ad1",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn:nth-child(2)",
+      "targets": [
+        ["css=.btn:nth-child(2)", "css:finder"],
+        ["xpath=//div[@onclick='sendOrder()']", "xpath:attributes"],
+        ["xpath=//div[2]/div[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "6268003f-aac5-4abb-a07a-8b3d8a600f94",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Фильмы",
+      "targets": [
+        ["linkText=Фильмы", "linkText"],
+        ["css=li:nth-child(1) > .nav-link", "css:finder"],
+        ["xpath=//a[contains(text(),'Фильмы')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/films')]", "xpath:href"],
+        ["xpath=//li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Фильмы')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "a88459e2-655e-4b45-8ef8-785b09f50589",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Подробнее о фильме",
+      "targets": [
+        ["linkText=Подробнее о фильме", "linkText"],
+        ["css=li:nth-child(1) > .btn", "css:finder"],
+        ["xpath=//a[contains(text(),'Подробнее о фильме')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/film/1')]", "xpath:href"],
+        ["xpath=//body/div/ul/li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Подробнее о фильме')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "6e2ef406-b16d-4a89-9c25-fae30eecdd5e",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=li:nth-child(1) > p:nth-child(2) > span",
+      "targets": [],
+      "value": "${aval}"
+    }, {
+      "id": "3995d550-6ce9-459a-9e99-49d7c3b04846",
+      "comment": "",
+      "command": "//storeText",
+      "target": "css=li:nth-child(1) > p:nth-child(2) > span",
+      "targets": [],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "91d8b773-6644-4beb-8e05-985180ed6d48",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": []
+  }],
+  "urls": ["http://localhost:8080/"],
+  "plugins": []
+}

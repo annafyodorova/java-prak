@@ -22,28 +22,6 @@ public class AuthController {
     @Autowired
     ClientService clientService;
 
-//    @PostMapping("/login")
-//    public String authenticate(@RequestParam("email") String email,
-//                               @RequestParam("password") String password,
-//                               RedirectAttributes redirectAttributes,
-//                               Model model) {
-//
-//        boolean isAuthenticated = clientService.authenticate(email, password);
-//
-//        if (isAuthenticated) {
-//            List<Client> clients = clientService.findByEmail(email);
-//            if (!clients.isEmpty()) {
-//                Client client = clients.get(0); // Предполагается, что email уникален
-//                return "redirect:/client/" + client.getId();
-//            } else {
-//                model.addAttribute("error", "No client found with the provided email");
-//                return "login";
-//            }
-//        } else {
-//            model.addAttribute("error", "Invalid email or password");
-//            return "login";
-//        }
-//    }
     @PostMapping("/register")
     public String registerClient(
             @RequestParam("fullName") String fullName,

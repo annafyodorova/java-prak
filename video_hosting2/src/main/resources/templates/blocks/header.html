@@ -1,0 +1,36 @@
+<div class="p-3 text-bg-light" th:fragment="header">
+    <div class="container">
+        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+            <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+                <img width="40" height="32" src="https://www.svgrepo.com/show/529023/home-smile.svg"/>
+            </a>
+
+            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                <li><a href="/films" class="nav-link px-2 ">Фильмы</a></li>
+                <li style="display: flex">
+                    <a href="/cart" class="nav-link px-2 ">Корзина</a>
+                    <span id="cart-counter">0</span>
+                </li>
+                <li><a href="/history" class="nav-link px-2 ">Журнал</a></li>
+            </ul>
+            <div th:if="${user != null}" style="display: contents">
+                <div id="user_email" th:text="${user.username}" />
+                <a href="/logout" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+                    <img width="40" height="32" src="https://www.svgrepo.com/show/529057/logout-2.svg"/>
+                </a>
+            </div>
+            <div th:if="${user == null}" style="display: contents">
+                <div class="text-end">
+                    <form action="/login">
+                        <button type="submit" class="btn btn-outline-primary me-2">Войти</button>
+                    </form>
+                </div>
+                <div class="text-end">
+                    <form action="/register">
+                        <button type="submit" class="btn btn-secondary me-2 mt-0">Зарегистрироваться</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

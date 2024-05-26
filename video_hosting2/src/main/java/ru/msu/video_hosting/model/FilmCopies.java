@@ -2,9 +2,10 @@ package ru.msu.video_hosting.model;
 
 import jakarta.persistence.*;
 import lombok.Getter;
-import lombok.NonNull;
 import lombok.Setter;
 import lombok.ToString;
+import org.hibernate.annotations.JdbcTypeCode;
+import org.hibernate.type.SqlTypes;
 
 import java.util.Objects;
 
@@ -21,7 +22,8 @@ public class FilmCopies implements CommonEntity<Integer>{
 
     //@Enumerated(EnumType.STRING)
     @Column(nullable = false, name = "status")
-    private String status;
+    @JdbcTypeCode(SqlTypes.NAMED_ENUM)
+    private CopyStatus status;
 
     public FilmCopies() {}
 
@@ -33,7 +35,7 @@ public class FilmCopies implements CommonEntity<Integer>{
      */
     public FilmCopies(
             Integer FilmCopies_id,
-            String status
+            CopyStatus status
     ) {
         this.filmCopiesId = FilmCopies_id;
         this.status = status;
